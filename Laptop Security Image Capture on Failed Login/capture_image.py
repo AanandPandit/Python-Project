@@ -5,10 +5,10 @@ import datetime
 # Set log file and image save directory
 log_file = "C:\\Logon_Capture\\login_attempts.log"
 image_dir = os.path.expanduser("~/Desktop")
-os.makedirs(image_dir, exist_ok=True)  # Ensure directory exists
+os.makedirs(image_dir, exist_ok=True) 
 
 def log_attempt(status):
-    """Logs login attempts (Success or Failed) with timestamps."""
+    # Logs login attempts with timestamps
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     log_entry = f"{timestamp} - {status}\n"
     
@@ -16,7 +16,7 @@ def log_attempt(status):
         f.write(log_entry)
 
 def capture_image():
-    """Captures an image using the webcam and saves it to Desktop."""
+    # Captures an image using the webcam and saves it to Desktop
     cam = cv2.VideoCapture(0)
     cam.set(cv2.CAP_PROP_BUFFERSIZE, 1)  # Reduce camera buffer lag
     cam.set(cv2.CAP_PROP_FPS, 30)  # Increase FPS for faster capture
@@ -34,13 +34,13 @@ def capture_image():
     cv2.destroyAllWindows()
 
 def handle_failed_attempt():
-    """Logs failed attempt and captures an image."""
+    # Logs failed attempt and captures an image.
     log_attempt("FAILED LOGIN ATTEMPT")
     capture_image()
 
 
-# Debugging - Simulate login events
+# Run the program
 if __name__ == "__main__":
-    handle_failed_attempt()  # Simulate failed login
+    handle_failed_attempt() 
 
 
