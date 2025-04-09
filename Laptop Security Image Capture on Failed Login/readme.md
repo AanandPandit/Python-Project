@@ -4,11 +4,14 @@ This project logs failed login attempts on a Windows 11 machine. If an incorrect
 
 ## Features
 
-✅ Logs both successful and failed login attempts in a text file.
+✅ Logs both failed login attempts in a log file.
 
 ✅ Captures an intruder's image on failed login attempts.
 
-✅ Saves logs in C:\Logon_Capture\login_attempts.log.
+✅ Saves logs in 
+```bash
+C:\Logon_Capture\login_attempts.log.
+```
 
 ✅ Works with Windows Task Scheduler to automate execution on Event ID 4625.
 
