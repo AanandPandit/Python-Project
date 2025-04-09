@@ -16,12 +16,13 @@ def log_attempt(status):
         f.write(log_entry)
 
 def capture_image():
-    # Captures an image using the webcam and saves it to Desktop
+    # Captures an image using the webcam and saves it to the Desktop
     cam = cv2.VideoCapture(0)
-    cam.set(cv2.CAP_PROP_BUFFERSIZE, 1)  # Reduce camera buffer lag
-    cam.set(cv2.CAP_PROP_FPS, 30)  # Increase FPS for faster capture
-
-    for _ in range(5):  # Skip initial laggy frames
+    cam.set(cv2.CAP_PROP_BUFFERSIZE, 1)    # Reduce camera buffer lag
+    cam.set(cv2.CAP_PROP_FPS, 30)          # Increase FPS for faster capture
+    
+    # Skip initial laggy frames
+    for _ in range(5):  
         cam.read()
 
     ret, frame = cam.read()
